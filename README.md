@@ -16,6 +16,7 @@ PersonnummerValidator är en C#-applikation utvecklad för att validera svenska 
 
 ### Lokal Körning
 
+<<<<<<< HEAD
 1.**Skapa en map där du vill ha filerna från github**:
 
 
@@ -34,6 +35,20 @@ dotnet run
 
 1. **Bygg Docker-Containern**:
 docker build -t personnummerkontroll .
+=======
+1. **Skapa en map där du vill ha filerna från github**
+
+2. **Klona Repositoriet:**
+git clone "https://github.com/Kingu13/Grupp8Uppgift.git"
+
+3. **Kör Applikationen:**
+Öppna en terminal för filen "PersonnummerValidator.cs"
+Använd kommandot: dotnet run
+
+### Kör Enhetstester
+Öppna en terminal för filen "UnitTest1.cs"
+För att köra enhetstesterna, använd följande kommando: dotnet test
+>>>>>>> 9483baac1f991cb513f6d63415e108bf7269cfcc
 
 2. **Kör Docker-Containern**:
 docker run personnummerkontroll
