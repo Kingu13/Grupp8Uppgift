@@ -25,4 +25,3 @@ jobs:
           
       - name: Build docker image
         run: docker build -t ainafahlgren/grupp8uppgift . 
-
