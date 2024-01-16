@@ -1,52 +1,51 @@
-# CICDPineLine
+# PersonnummerValidator Applikation
 
-# Personnummerkontrollapplikation
-
-Denna applikation är designad för att validera svenska personnummer. Den är skapad i C# och innehåller NUnit-tester för att verifiera funktionaliteten. Applikationen kan köras lokalt eller i en Docker-container.
+## Introduktion
+PersonnummerValidator är en C#-applikation utvecklad för att validera svenska personnummer. Applikationen erbjuder konsolbaserad interaktion och Docker-stöd, vilket möjliggör enkel validering av personnummer enligt svenska standarder.
 
 ## Funktioner
+- Validerar svenska personnummer enligt formatet YYMMDD-XXXX.
+- Möjlighet att köra applikationen både lokalt och i en Docker-container.
+- Inkluderar grundläggande logik för att kontrollera format och längd på inmatade personnummer.
 
-- Validerar svenska personnummer.
-- Inkluderar enhetstester för att säkerställa korrekt validering.
-- Docker-stöd för flexibel körning.
-
-## Förutsättningar
-
-- .NET 6.0 eller senare.
-- Docker (för att köra applikationen i en container).
+## Systemkrav
+- .NET 6.0 SDK eller högre.
+- Docker (för körning i en container).
 
 ## Installation och Körning
 
-### Lokalt
+### Lokal Körning
 
-1. **Klona Repositoriet:**
+1.**Skapa en map där du vill ha filerna från github**:
+
+
+2. **Klona Repositoriet med Git Bash**:
 git clone "https://github.com/Kingu13/Grupp8Uppgift.git"
 
-2. **Navigera till Repositoriet:**
-cd 
 
-3. **Bygg och Kör Applikationen:**
-dotnet build 
+
+3. **Kompilera och kör applikationen**:
 dotnet run
 
 ### Kör Enhetstester
+Öppna en terminal för filen "UnitTest1.cs" För att köra enhetstesterna, använd följande kommando: dotnet test
 
-För att köra enhetstesterna, använd följande kommando:
-detnet test
+### Körning med Docker
 
+1. **Bygg Docker-Containern**:
+docker build -t personnummerkontroll .
 
-### Använda Docker
-
-1. **Bygg Docker-Containern:**
+2. **Kör Docker-Containern**:
 docker run personnummerkontroll
 
 
-## Svenska Regler för Personnummer
+## Personnummer Validering
 
-Svenska personnummer följer formatet YYMMDD-XXXX, där YYMMDD representerar födelsedatum och XXXX är en unik kod med en kontrollsiffra som sista siffra. Applikationen validerar personnummer genom att:
+Svenska personnummer består av 10 siffror (YYMMDD-XXXX) där YYMMDD representerar födelsedatum och XXXX är en unik kod inklusive en kontrollsiffra. Applikationen kontrollerar att inmatningen:
 
-1. **Kontrollera Formatet:** Se till att numret följer det korrekta formatet.
-2. **Datumvalidering:** Kontrollera att YYMMDD utgör ett giltigt datum.
-3. **Kontrollsiffran:** Använd Luhn-algoritmen för att verifiera kontrollsiffran.
+- Är 11 tecken lång inklusive bindestreck.
+- Har korrekta sifferpositioner och format.
+- (Valfritt) Ytterligare valideringslogik kan läggas till för att kontrollera datum och kontrollsiffran.
+
 
 
