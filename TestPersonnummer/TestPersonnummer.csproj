@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PersonnumerKontrollApp\PersonnumerKontrollApp.csproj" />
+    <ProjectReference Include="..\PersonnummerKontrollApp\PersonnummerKontrollApp.csproj" />
   </ItemGroup>
 
 </Project>
