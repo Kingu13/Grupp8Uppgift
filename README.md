@@ -19,21 +19,18 @@ Denna applikation är designad för att validera svenska personnummer. Den är s
 
 ### Lokalt
 
-1. **Klona Repositoriet:**
+1. **Skapa en map där du vill ha filerna från github**
+
+2. **Klona Repositoriet:**
 git clone "https://github.com/Kingu13/Grupp8Uppgift.git"
 
-2. **Navigera till Repositoriet:**
-cd 
-
-3. **Bygg och Kör Applikationen:**
-dotnet build 
-dotnet run
+3. **Kör Applikationen:**
+Öppna en terminal för filen "PersonnummerValidator.cs"
+Använd kommandot: dotnet run
 
 ### Kör Enhetstester
-
-För att köra enhetstesterna, använd följande kommando:
-detnet test
-
+Öppna en terminal för filen "UnitTest1.cs"
+För att köra enhetstesterna, använd följande kommando: dotnet test
 
 ### Använda Docker
 
