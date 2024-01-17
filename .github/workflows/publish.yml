@@ -2,8 +2,8 @@ name: Publish Docker image
 
 on:
   push:
-    branches:
-      - main
+    branches ignore:
+      - '*'
           
 jobs:
   build:
@@ -13,12 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
           
-      - name: Set up .net
+      - name: Set up .NET 6.x
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.x'
           
-      - name: Restore and build
+      - name: Restore and build .NET project
         run: |
           dotnet restore
           dotnet build
