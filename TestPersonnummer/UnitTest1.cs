@@ -79,4 +79,5 @@ public class TestPersonnummer
         // Assert
         Assert.AreEqual($"Personnumret är korrekt.{Environment.NewLine}", consoleOutput.ToString());
     }
+    
 }
