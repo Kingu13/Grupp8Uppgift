@@ -4,74 +4,85 @@ public class PersonnummerValidator
 {
     public static void Main()
     {
-        Console.WriteLine("Skriv in ett svenskt personnummer (ÅÅMMDD-XXXX):");
-        string personnummerInput = Console.ReadLine();
-
-        if (IsValidPersonnummer(personnummerInput))
+        while (true)
         {
-            Console.WriteLine("Personnumret är korrekt.");
+            Console.WriteLine("Skriv in ett svenskt personnummer (ÅÅMMDD-XXXX eller ÅÅÅÅMMDD-XXXX):");
+            string personnummer = Console.ReadLine();
+
+            if (IsValidPersonnummer(personnummer))
+            {
+                Console.WriteLine("Personnumret är korrekt.");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Personnumret är ogiltigt.");
+            }
+        }
+    }
+
+    public static bool IsValidPersonnummer(string personnummer)
+    {
+        // Extract the year, month, and day from the personnummer for testing.
+        int birthYear, birthMonth, birthDay;
+
+        if (personnummer.Length == 11)
+        {
+            birthYear = int.Parse(personnummer.Substring(0, 2));
+            birthMonth = int.Parse(personnummer.Substring(2, 2));
+            birthDay = int.Parse(personnummer.Substring(4, 2));
+        }
+        else if (personnummer.Length == 13)
+        {
+            birthYear = int.Parse(personnummer.Substring(0, 4));
+            birthMonth = int.Parse(personnummer.Substring(4, 2));
+            birthDay = int.Parse(personnummer.Substring(6, 2));
         }
         else
         {
-            Console.WriteLine("Personnumret är ogiltigt.");
+            return false; // Invalid length
         }
 
-        Console.ReadLine();
-    }
-
-   public static bool IsValidPersonnummer(string personnummer)
-    {
-        // Kontrollera längden på personnumret
-        if (personnummer.Length != 11)
+        // Validate the month
+        if (birthMonth < 1 || birthMonth > 12)
         {
-            return false;
+            return false; // Invalid month
         }
 
-        // Kontrollera att de första nio tecknen är siffror
-        for (int i = 0; i < 6; i++)
+        // Validate the day
+        if (birthDay < 1 || birthDay > DaysInMonth(birthYear, birthMonth))
         {
-            if (!char.IsDigit(personnummer[i]))
-            {
-                return false;
-            }
-        }
-
-        // Kontrollera att tecken 10 är en bindestreck (-)
-        if (personnummer[6] != '-')
-        {
-            return false;
-        }
-
-        // Kontrollera att korrekt formet ÅÅMMDD
-        int year, month, day;
-        if (!int.TryParse(personnummer.Substring(0, 2), out year) ||
-            !int.TryParse(personnummer.Substring(2, 2), out month) ||
-            !int.TryParse(personnummer.Substring(4, 2), out day))
-        {
-            return false;
-        }
-        //Kontrollera för giltigt år,månad, och dag
-
-        if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
-        {
-            return false;
-        }
-
-
-
-        // Kontrollera att tecken 8 till 11 är siffror
-        if (!int.TryParse(personnummer.Substring(7, 4), out int idDigits))
-        {
-            return false;
-        }
-
-        // Check if the idDigits are valid
-        if (idDigits < 0 || idDigits > 9999)
-        {
-            return false;
+            return false; // Invalid day
         }
 
         return true;
     }
 
+    public static int GetYearOffset(int yearLength)
+    {
+        return (yearLength == 2) ? 1900 : 0;
+    }
+
+    public static int DaysInMonth(int year, int month)
+    {
+        if (month == 2) // February
+        {
+            // Leap year: 29 days, Non-leap year: 28 days
+            return IsLeapYear(year) ? 29 : 28;
+        }
+        else if (month >= 1 && month <= 7)
+        {
+            return month % 2 == 1 ? 31 : 30; // Odd months: 31 days, Even months: 30 days
+        }
+        else
+        {
+            return month % 2 == 0 ? 31 : 30; // Remaining even months: 31 days, odd months: 30 days
+        }
+    }
+
+    public static bool IsLeapYear(int year)
+    {
+        // Leap year rules: divisible by 4, not divisible by 100 unless divisible by 400
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
 }
