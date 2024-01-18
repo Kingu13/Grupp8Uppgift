@@ -1,8 +1,8 @@
 ﻿using System;
-
-public class PersonnummerValidator
+namespace application{
+public class Program
 {
-    public static void Main()
+    public static void main ()
     {
         while (true)
         {
@@ -15,6 +15,7 @@ public class PersonnummerValidator
                 break;
             }
             else
+
             {
                 Console.WriteLine("Personnumret är ogiltigt.");
             }
@@ -42,7 +43,7 @@ public class PersonnummerValidator
         {
             return false; // Invalid length
         }
-
+    
         // Validate the month
         if (birthMonth < 1 || birthMonth > 12)
         {
@@ -85,4 +86,10 @@ public class PersonnummerValidator
         // Leap year rules: divisible by 4, not divisible by 100 unless divisible by 400
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
+     public static bool IsCorrectFormat(string personnummer){
+        string input = personnummer;
+        bool isDigitPresent = input.Any(c => char.IsDigit(c));
+        return isDigitPresent;
+     }
+}
 }

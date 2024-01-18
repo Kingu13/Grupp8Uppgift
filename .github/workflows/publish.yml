@@ -13,20 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
           
-      - name: Set up .NET 6.x
+      - name: Set up .NET 8.x
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.x'
+          dotnet-version: '8.x'
           
       - name: Restore and build .NET project
         run: |
           dotnet restore
           dotnet build
-          
+      - name: Test
+        run: dotnet test --configuration Release --no-restore
       - name: Login to Docker hub
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
           
       - name: Build and push Docker image
         run: |
-          docker build -t msigersted/grupp8uppgift .
-          docker push msigersted/grupp8uppgift
+          docker build -t msigersted/grupp8 .
+          docker push msigersted/grupp8

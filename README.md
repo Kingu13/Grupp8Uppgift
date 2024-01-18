@@ -4,7 +4,7 @@
 PersonnummerValidator är en C#-applikation utvecklad för att validera svenska personnummer. Applikationen erbjuder konsolbaserad interaktion och Docker-stöd, vilket möjliggör enkel validering av personnummer enligt svenska standarder.
 
 ## Funktioner
-- Validerar svenska personnummer enligt formatet YYMMDD-XXXX.
+- Validerar svenska personnummer enligt formaten YYMMDD-XXXX och YYYYMMDD-XXXX.
 - Möjlighet att köra applikationen både lokalt och i en Docker-container.
 - Inkluderar grundläggande logik för att kontrollera format och längd på inmatade personnummer.
 
