@@ -1,0 +1,34 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '6.0.402'
+
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: TestPersonnummer
+
+    - name: Build
+      run: dotnet build --configuration Release
+      working-directory: TestPersonnummer
+
+    - name: Test
+      run: dotnet test --configuration Release --no-restore
+      working-directory: TestPersonnummer
