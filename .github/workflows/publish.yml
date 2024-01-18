@@ -28,5 +28,5 @@ jobs:
           
       - name: Build and push Docker image
         run: |
-          docker build -t ainafahlgren/grupp8uppgift .
-          docker push ainafahlgren/grupp8uppgift
+          docker build -t msigersted/grupp8.
+          docker push msigersted/grupp8
