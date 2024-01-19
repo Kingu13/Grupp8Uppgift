@@ -21,7 +21,8 @@ jobs:
       - name: Restore and build .NET project
         run: |
           dotnet restore
-          dotnet build
+          dotnet build MittProjekt.csproj
+
       - name: Test
         run: dotnet test --configuration Release --no-restore
       - name: Login to Docker hub
