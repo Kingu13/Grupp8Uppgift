@@ -9,7 +9,7 @@ PersonnummerValidator är en C#-applikation utvecklad för att validera svenska 
 - Inkluderar grundläggande logik för att kontrollera format och längd på inmatade personnummer.
 
 ## Systemkrav
-- .NET 6.0 SDK eller högre.
+- .NET 8.0 SDK.
 - Docker (för körning i en container).
 
 ## Installation och Körning
@@ -19,10 +19,10 @@ PersonnummerValidator är en C#-applikation utvecklad för att validera svenska 
 1. **Skapa en map där du vill ha filerna från github**
 
 2. **Klona Repositoriet:**
-git clone "https://github.com/Kingu13/Grupp8Uppgift.git"
+git clone "https://github.com/Msigersted/Grupp8Uppgift.git"
 
 3. **Kör Applikationen:**
-Öppna en terminal för filen "PersonnummerValidator.cs"
+Öppna en terminal för filen "Program.cs"
 Använd kommandot: dotnet run
 
 ### Kör Enhetstester
@@ -35,9 +35,9 @@ docker run personnummerkontroll
 
 ## Personnummer Validering
 
-Svenska personnummer består av 10 siffror (YYMMDD-XXXX) där YYMMDD representerar födelsedatum och XXXX är en unik kod inklusive en kontrollsiffra. Applikationen kontrollerar att inmatningen:
+Svenska personnummer består av 10 eller 12 siffror (YYMMDD-XXXX, YYYYMMDD-XXXX) där YYMMDD och YYYYMMDD representerar födelsedatum och XXXX är en unik kod inklusive en kontrollsiffra. Applikationen kontrollerar att inmatningen:
 
-- Är 11 tecken lång inklusive bindestreck.
+- Är 11 eller 13 tecken lång inklusive bindestreck.
 - Har korrekta sifferpositioner och format.
 - (Valfritt) Ytterligare valideringslogik kan läggas till för att kontrollera datum och kontrollsiffran.
 
