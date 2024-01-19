@@ -21,7 +21,7 @@ jobs:
       - name: Restore and build .NET project
         run: |
           dotnet restore
-          dotnet build MittProjekt.csproj
+          dotnet build 
 
       - name: Test
         run: dotnet test --configuration Release --no-restore
