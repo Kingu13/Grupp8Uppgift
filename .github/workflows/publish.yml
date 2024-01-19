@@ -19,7 +19,8 @@ jobs:
           dotnet-version: '8.x'
           
       - name: Restore and build .NET project
-        run: |
+        run: | 
+          cd grupp8uppgift
           dotnet restore
           dotnet build
       - name: Test
