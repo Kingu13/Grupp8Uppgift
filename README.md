@@ -35,11 +35,11 @@ docker run personnummerkontroll
 
 ## Personnummer Validering
 
-Svenska personnummer består av 10 eller 12 siffror (YYMMDD-XXXX, YYYYMMDD-XXXX) där YYMMDD och YYYYMMDD representerar födelsedatum och XXXX är en unik kod inklusive en kontrollsiffra. Applikationen kontrollerar att inmatningen:
+Svenska personnummer består av antingen 10 eller 12 siffror och kan skrivas enligt två olika format: YYMMDD-XXXX eller YYYYMMDD-XXXX. Här representerar YYMMDD och YYYYMMDD födelsedatum och XXXX är en unik kod som inkluderar en kontrollsiffra. För att säkerställa att inmatningen är korrekt, kontrollerar applikationen följande:
 
-- Är 11 eller 13 tecken lång inklusive bindestreck.
-- Har korrekta sifferpositioner och format.
-- (Valfritt) Ytterligare valideringslogik kan läggas till för att kontrollera datum och kontrollsiffran.
+- Antalet tecken är antingen 11 eller 13, inklusive ett bindestreck.
+- Siffrornas positioner och format är korrekta enligt det svenska personnumrets struktur.
+- Det finns möjlighet att lägga till ytterligare valideringslogik för att kontrollera att födelsedatum och kontrollsiffran är korrekta, om så önskas.
 
 
 
