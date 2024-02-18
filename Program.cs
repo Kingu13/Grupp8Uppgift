@@ -50,7 +50,7 @@ public class Program
             return false; // Invalid month
         }
 
-        // Validate the day
+        // Validate the dayy
         if (birthDay < 1 || birthDay > DaysInMonth(birthYear, birthMonth))
         {
             return false; // Invalid day
